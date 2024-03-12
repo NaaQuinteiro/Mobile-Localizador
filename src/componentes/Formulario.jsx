@@ -1,8 +1,8 @@
 import { useState } from "react";
 import {View, StyleSheet, TextInput, Text, TouchableOpacity} from "react-native"
 
-
-export function Formulario(){
+//passando a propse como parametro
+export function Formulario({adicionar}){
     
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
@@ -13,17 +13,7 @@ export function Formulario(){
     //tudo que se altera no input altera o state e alterações no state afetão o input, isto é o componente controlado 
     //que está vinculado entre o state e oq há na tela
 
-    // criando a função, armnazenando o conteudo do state dentro do obj js
-
-    function adicionarUsuario(){
-        let novoUsuario = {
-            nome: nome,
-            email: email,
-            telefone: telefone
-        }
-
-        console.log(novoUsuario)
-    }
+   
 
     return(
         <View style={styles.container}>
@@ -60,7 +50,7 @@ export function Formulario(){
            
             <TouchableOpacity 
                 style={styles.botao}
-                onPress={adicionarUsuario}
+                onPress={() => adicionar(nome, email, telefone)}
             >
                 <Text style={styles.texto}>+</Text>
             </TouchableOpacity>
