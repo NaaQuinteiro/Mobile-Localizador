@@ -5,7 +5,7 @@ export const  Cabecalho = ({titulo, subtitulo}) => {
     return(
         <View style={estilos.container}>
             <Text style={estilos.texto}>{titulo}</Text>
-            <Text style={estilos.texto}>{subtitulo}</Text>
+            { subtitulo?<Text style={estilos.texto}>{subtitulo}</Text>:null }
         </View>
     )
 };
@@ -13,7 +13,8 @@ export const  Cabecalho = ({titulo, subtitulo}) => {
 const estilos = StyleSheet.create({
     container:{
         backgroundColor: '#8338ec', 
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: 15,
     },
     texto:{
         color: '#FFFF',

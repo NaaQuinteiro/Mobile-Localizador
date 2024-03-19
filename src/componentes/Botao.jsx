@@ -17,7 +17,7 @@ export const Botao = ({texto}) => {
         // envolve todos os componentes, podendo ser usado como botão
         <TouchableOpacity 
             style={estilos.container}
-            onPress={contarCliques} //vincula o evento quanfo o botao é pressionado
+            onPress={contarCliques} //vincula o evento quando o botao é pressionado
         >
             <Text style={estilos.texto}>{texto}{cliques}</Text>
         </TouchableOpacity>
