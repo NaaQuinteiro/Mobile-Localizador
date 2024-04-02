@@ -4,13 +4,14 @@ import { Login } from './src/telas/Login';
 import { Cadastro } from './src/telas/Cadastro';
 import { Sobre } from './src/telas/Sobre';
 import { Usuarios } from './src/telas/Usuarios';
+import { AmbientesEquipamentos } from './src/telas/AmbientesEquipamentos';
 
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
-        <Login/>
+        <AmbientesEquipamentos/>
     </View>
   );
 }

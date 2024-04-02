@@ -1,12 +1,16 @@
 import { useState } from "react";
 import {View, StyleSheet, TextInput, Text, TouchableOpacity} from "react-native"
 
+
 //passando a propse como parametro
-export function Formulario({adicionar}){
+export function FormularioUsuario({adicionar}){
     
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
     const [telefone, setTelefone] = useState('')
+    const [usuario, setUsuario] = useState('')
+    const [senha, setSenha] = useState('')
+
     
     //onChange = executado a cada interação ou alteração dentro do input 
     //value = é a informação apresentada dentro do input, então qualaquer alteração feita no state é mostrada no input 
@@ -46,11 +50,29 @@ export function Formulario({adicionar}){
                 value={telefone}
                 />
 
+                <TextInput 
+                    style={styles.campo}
+                    placeholder='User'
+                    placeholderTextColor='#fff'
+                    keyboardType='default'                
+                    onChangeText={setUsuario}
+                    value={usuario}
+                /> 
+
+                <TextInput 
+                    style={styles.campo}
+                    placeholder='Password'
+                    placeholderTextColor='#fff'                
+                    onChangeText={setSenha}
+                    value={senha}
+                />     
+
+
             </View>
            
             <TouchableOpacity 
                 style={styles.botao}
-                onPress={() => adicionar(nome, email, telefone)}
+                onPress={ () => adicionar(nome, email, telefone, usuario, senha)}
             >
                 <Text style={styles.texto}>+</Text>
             </TouchableOpacity>
@@ -83,9 +105,10 @@ const styles = StyleSheet.create({
     },
     botao: {
         width: 60,
+        height: 290,
+        marginStart: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        height: 170, 
         backgroundColor: '#560bad',
         marginStart: 10,
         borderRadius: 5, 

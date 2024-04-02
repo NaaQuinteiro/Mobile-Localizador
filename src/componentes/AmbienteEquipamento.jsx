@@ -1,17 +1,17 @@
-// aqui será definido como o programa apresentará cada usuario individualmente 
-
+// aqui será definido como o programa apresentará cada ambiente e equipamento individualmente 
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 
-export function Usuario({nome, email, telefone,usuario, senha, excluir}){
+export const AmbienteEquipamento = ({descricao, latitude, longitude, statusOperacional, instrucoesSeguranca, contatoResponsavel, excluir }) =>{
     return(
         <View style={styles.container}>
 
             <View style={styles.containerDados}>
-                <Text style={styles.texto}>Name: {nome}</Text>
-                <Text style={styles.texto}>E-mail: {email}</Text>
-                <Text style={styles.texto}>Phone Number: {telefone}</Text>
-                <Text style={styles.texto}>User: {usuario}</Text>
-                <Text style={styles.texto}>Password: {senha}</Text>
+                <Text style={styles.texto}>Descrição: {descricao}</Text>
+                <Text style={styles.texto}>Latitude: {latitude}</Text>
+                <Text style={styles.texto}>Longitude: {longitude}</Text>
+                <Text style={styles.texto}>Status Operacional: {statusOperacional}</Text>
+                <Text style={styles.texto}>Instruções de Segurança: {instrucoesSeguranca}</Text>
+                <Text style={styles.texto}>Contato do Responsável: {contatoResponsavel}</Text>
             </View>
 
             <TouchableOpacity 
@@ -22,8 +22,8 @@ export function Usuario({nome, email, telefone,usuario, senha, excluir}){
             </TouchableOpacity>
         </View>
     )
-}
 
+}
 
 const styles = StyleSheet.create({
     container: {

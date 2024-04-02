@@ -1,56 +1,39 @@
 import {View, Text, TouchableOpacity, TextInput, StyleSheet} from "react-native"
 import { Cabecalho } from "../componentes/Cabecalho";
 import { useState } from "react";
+import uuid from 'react-native-uuid'
+import { FormularioUsuario } from "../componentes/FormularioUsuario";
 
 
 
 export function Cadastro(){
 
+    const [codigo, setCodigo] = useState('')
     const [nome, setNome] = useState('')
+    const [email, setEmail] = useState('')
+    const [telefone, setTelefone] = useState('')
     const [usuario, setUsuario] = useState('')
     const [senha, setSenha] = useState('')
+    
+    
+    const adicionarUsuario = (nome, email, telefone, usuario, senha) => {
 
-    console.log(nome)
-    console.log(usuario)
-    console.log(senha)
+        setCodigo(uuid.v4())
+        setNome(nome)
+        setEmail(email)
+        setTelefone(telefone)
+        setUsuario(usuario)
+        setSenha(senha)
+    }
 
     return(
         <View style={styles.container}>
             <Cabecalho titulo={"Cadastro"}/>
 
-            <View style={styles.containerCadastro}>
-
-                <TextInput
-                style={styles.campo}
-                placeholder="Nome"
-                placeholderTextColor='#FFFF'
-                keyboardType="default"
-                onChangeText={setNome}
-                value={nome}
-                />
-
-                <TextInput
-                style={styles.campo}
-                placeholder="Usuário"
-                placeholderTextColor='#FFFF'
-                keyboardType="default"
-                onChangeText={setUsuario}
-                value={usuario}
-                />
-
-                <TextInput
-                style={styles.campo}
-                placeholder="Senha"
-                placeholderTextColor='#FFFF'
-                keyboardType="default"
-                onChangeText={setSenha}
-                value={senha}
-                />
-
-                <TouchableOpacity style={styles.botao}>
-                    <Text style={styles.textoBtn}>Cadastrar</Text>
-                </TouchableOpacity>
-
+            <View style={styles.conteinerCadastro}>
+                <FormularioUsuario 
+                    adicionar={adicionarUsuario}
+                />  
             </View>
 
         </View>

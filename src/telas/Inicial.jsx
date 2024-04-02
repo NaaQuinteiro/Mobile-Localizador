@@ -13,7 +13,7 @@ export function Inicial(){
                 subtitulo="2DS-TB"/>
             <Botao texto = "Usuários"/>
             <Botao texto = "Sensores"/>
-            <Botao texto = "Informações"/>
+            <Botao texto = "Sobre"/>
             
         </View>
     );

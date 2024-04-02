@@ -4,38 +4,39 @@ import {View, Text, TouchableOpacity, TextInput, StyleSheet} from "react-native"
 export function Login(){
 
     //useState = armazrena os dados inseridos nos inputs
-    const [nome, setNome] = useState('')
+    const [usuario, setUsuario] = useState('')
     const [senha, setSenha] = useState('')
 
-    console.log(nome)
+    console.log(usuario)
     console.log(senha)
 
     return(
         <View style={styles.container}>
            
             <TextInput
-            style={styles.campo}
-            placeholder="Usuário"
-            placeholderTextColor='#FFFF'
-            keyboardType="default"
-            onChangeText={setNome}
-            value={nome}
+                style={styles.campo}
+                placeholder='Usuário' 
+                placeholderTextColor='#e1e5f2'
+                onChangeText={setUsuario}
+                value={usuario}
             />
 
             <TextInput
-            style={styles.campo}
-            placeholder="Senha"
-            placeholderTextColor='#FFFF'
-            keyboardType="default"
-            onChangeText={setSenha}
-            value={senha}
+                style={styles.campo}
+                placeholder='Senha'
+                placeholderTextColor='#e1e5f2'
+                keyboardType='default'
+                onChangeText={setSenha}
+                value={senha}     
             />
     
             <TouchableOpacity style={styles.botao}>
                 <Text style={styles.textoBtn}>Sigin</Text>
             </TouchableOpacity>
             
-            <Text style={styles.texto}>Cadastre-se!</Text>
+            <TouchableOpacity style={styles.cadastro} >
+                <Text style={styles.textoCadastro}>Cadastre-se</Text>
+            </TouchableOpacity>  
             
         </View>
         
@@ -80,7 +81,13 @@ const styles = StyleSheet.create({
         color: '#FFFF',
         fontSize: 15
     },
-    texto:{
+    cadastro: {
+        width: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5
+    },
+    textoCadastro:{
         color: '#fff',
         fontSize: 15,
     }

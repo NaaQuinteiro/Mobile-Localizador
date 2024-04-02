@@ -7,15 +7,7 @@ export function Sobre(){
 
     return(
         <View style={styles.container}>
-            <Cabecalho titulo={"Sobre"}/>
-            <Text style={styles.texto}>Essas tags TEXT é sópra não ficar vazio =D</Text>
-            <Text></Text>
-            <Text style={styles.texto}>I'm on the highway to hell</Text>
-            <Text style={styles.texto}>On the highway to hell</Text>
-            <Text style={styles.texto}>Highway to hell</Text>
-            <Text style={styles.texto}>I'm on the Highway to hell</Text>
-            <Text></Text>
-            <Text style={styles.texto}>by: ACDC</Text>
+            <Cabecalho titulo="Sobre" />
         </View>
         
     )
@@ -27,9 +19,4 @@ const styles = StyleSheet.create({
         flex:1, 
         backgroundColor: '#000'
     },
-    texto:{
-        color: '#FFF',
-        fontSize: 21,
-    }
-
 });

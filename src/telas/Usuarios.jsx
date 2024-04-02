@@ -1,24 +1,25 @@
 import {View, Text, StyleSheet} from "react-native"
 import { Cabecalho } from "../componentes/Cabecalho";
-import {Formulario} from "../componentes/Formulario";
-import { Lista } from "../componentes/Lista";
+import {FormularioUsuario} from "../componentes/FormularioUsuario";
+import { ListaUsuario } from "../componentes/ListaUsuario";
 import { useState } from "react";
-
 import 'react-native-get-random-values'
-import {v4 as uuid} from 'uuid'
+import uuid from 'react-native-uuid'
 
 export function Usuarios(){
 
     const [listaUsuarios, setListaUsuarios] = useState([]);
 
     //função pra inserir usuarios  // criando a função, que deve interajir com o componente formulario
-    function adicionarUsuario(nome, email, telefone){
+    function adicionarUsuario(nome, email, telefone, usuario, senha){
 
         let novoUsuario = {
-            codigo: uuid(),
+            codigo: uuid.v4(),
             nome: nome,
             email: email,
-            telefone: telefone
+            telefone: telefone,
+            usuario: usuario,
+            senha: senha
         }
 
         //insere o novo objeto
@@ -35,18 +36,16 @@ export function Usuarios(){
     }
     
 
-
-
     return(
         <View style={styles.container}>
 
-            <Cabecalho titulo="Usuários"/>
+            <Cabecalho titulo="Cadastro de Usuários"/>
 
-            <Formulario adicionar={adicionarUsuario}/>
+            <FormularioUsuario adicionar={adicionarUsuario}/>
 
-            <Lista 
-            colecao={listaUsuarios}
-            remover={removerUsuario}
+            <ListaUsuario 
+                colecao={listaUsuarios}
+                remover={removerUsuario}
             />
 
         </View>
