@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {View, Text, TouchableOpacity, TextInput, StyleSheet} from "react-native"
+import {useNavigation} from '@react-navigation/native'
 
 export function Login(){
 
@@ -7,8 +8,13 @@ export function Login(){
     const [usuario, setUsuario] = useState('')
     const [senha, setSenha] = useState('')
 
-    console.log(usuario)
-    console.log(senha)
+    const navigation = useNavigation()
+
+    // função
+    function abrirInicial(){
+        navigation.navigate('inicial')
+
+    }
 
     return(
         <View style={styles.container}>
@@ -30,7 +36,7 @@ export function Login(){
                 value={senha}     
             />
     
-            <TouchableOpacity style={styles.botao}>
+            <TouchableOpacity style={styles.botao} onPress={abrirInicial}>
                 <Text style={styles.textoBtn}>Sigin</Text>
             </TouchableOpacity>
             
