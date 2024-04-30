@@ -9,12 +9,8 @@ export function Inicial(){
     return(
         <View style={styles.container}> 
             <Cabecalho 
-                titulo="Senai Roberto Mange"
-                subtitulo="2DS-TB"/>
-            <Botao texto = "Usuários"/>
-            <Botao texto = "Sensores"/>
-            <Botao texto = "Sobre"/>
-            
+                titulo="HOME"
+            />            
         </View>
     );
 }

@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 //Importando a tela de login 
 import {Login} from '../telas/Login'
-import { Inicial } from '../telas/Inicial'
+
+import { RotasTab } from './RotasTab'
 
 //necessário desestruturar certos elementos no createNativeStackNavigator 
 const { Navigator, Screen } = createNativeStackNavigator()
@@ -13,7 +14,7 @@ export function RotasStack(){
     return(
         <NavigationContainer>
 
-            <Navigator>
+            <Navigator screenOptions={{ headerShown: false }}>
 
                 <Screen
                     name='login'
@@ -22,8 +23,8 @@ export function RotasStack(){
                 />
 
                 <Screen
-                    name='inicial'
-                    component={Inicial}
+                    name='rotasTab'
+                    component={RotasTab}
                 />
 
             </Navigator>
@@ -39,3 +40,6 @@ export function RotasStack(){
 
 // A rota usando o Stack possibilita decidir de tela em tela qual eu vou navegar
 //ou seja definimos as rotas 
+
+//<Navigator screenOptions={{headerShown: false}}> esse header show remove as barrinhas,
+//tabBarShowLabel: false permite tiraar o texto e deixa apenas icones

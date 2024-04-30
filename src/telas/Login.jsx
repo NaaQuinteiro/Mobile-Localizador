@@ -12,7 +12,7 @@ export function Login(){
 
     // função
     function abrirInicial(){
-        navigation.navigate('inicial')
+        navigation.navigate('rotasTab')
 
     }
 
