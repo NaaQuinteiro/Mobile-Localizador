@@ -1,6 +1,7 @@
 // aqui será definido como o programa apresentará cada usuario individualmente 
 
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import { Feather } from '@expo/vector-icons'
 
 export function Usuario({nome, email, telefone,usuario, senha, excluir}){
     return(
@@ -18,7 +19,13 @@ export function Usuario({nome, email, telefone,usuario, senha, excluir}){
                 style={styles.botao}
                 onPress={excluir}
             >
-                <Text style={styles.textoBotao}>-</Text>
+                <Text style={styles.textoBotao}>
+                    <Feather
+                        name="user-minus"
+                        size={24}
+                        color='#dee2e6'
+                    />
+                </Text>
             </TouchableOpacity>
         </View>
     )

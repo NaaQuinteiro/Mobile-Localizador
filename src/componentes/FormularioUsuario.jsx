@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {View, StyleSheet, TextInput, Text, TouchableOpacity} from "react-native"
-
+import {Feather} from '@expo/vector-icons'
 
 //passando a propse como parametro
 export function FormularioUsuario({adicionar}){
@@ -74,7 +74,13 @@ export function FormularioUsuario({adicionar}){
                 style={styles.botao}
                 onPress={ () => adicionar(nome, email, telefone, usuario, senha)}
             >
-                <Text style={styles.texto}>+</Text>
+                <Text style={styles.texto}>
+                    <Feather
+                     name="user-plus"
+                     size={24}
+                     color='#dee2e6'
+                    />
+                </Text>
             </TouchableOpacity>
             
         </View>
