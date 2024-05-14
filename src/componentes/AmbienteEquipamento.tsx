@@ -1,7 +1,20 @@
 // aqui será definido como o programa apresentará cada ambiente e equipamento individualmente 
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 
-export const AmbienteEquipamento = ({descricao, latitude, longitude, statusOperacional, instrucoesSeguranca, contatoResponsavel, excluir }) =>{
+// Serve para definição de tipos das variáveis ou propses utilizadas no typeScript
+interface AmbienteEquipamentoProps{
+    descricao: string;
+    latitude: string;
+    longitude: string;
+    statusOperacional: string;
+    instrucoesSeguranca: string;
+    contatoResponsavel: string;
+    excluir: () => void
+
+}
+
+
+export const AmbienteEquipamento = ({descricao, latitude, longitude, statusOperacional, instrucoesSeguranca, contatoResponsavel, excluir } : AmbienteEquipamentoProps) =>{
     return(
         <View style={styles.container}>
 

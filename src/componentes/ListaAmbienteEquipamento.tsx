@@ -1,7 +1,23 @@
 import {View,Text, StyleSheet, FlatList} from "react-native"
 import { AmbienteEquipamento } from "./AmbienteEquipamento"
 
-export const ListaAmbienteEquipamento = ({colecao, remover}) =>{
+
+interface AmbienteEquipamentoProps{
+    codigo: string;
+    descricao: string;
+    latitude: string;
+    longitude: string;
+    statusOperacional: string;
+    instrucoesSeguranca: string;
+    contatoResponsavel: string;
+}
+
+
+interface ListaAmbienteEquipamentoProps{
+ colecao: AmbienteEquipamentoProps[];
+ remover: (codigo: string) => void;
+}
+export const ListaAmbienteEquipamento = ({colecao, remover} : ListaAmbienteEquipamentoProps) =>{
 
     return(
         <View style={styles.conteiner}>

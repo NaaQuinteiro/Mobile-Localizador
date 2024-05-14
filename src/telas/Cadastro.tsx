@@ -16,9 +16,9 @@ export function Cadastro(){
     const [senha, setSenha] = useState('')
     
     
-    const adicionarUsuario = (nome, email, telefone, usuario, senha) => {
+    const adicionarUsuario = (nome: string, email: string, telefone: string, usuario: string, senha: string) => {
 
-        setCodigo(uuid.v4())
+        setCodigo(String(uuid.v4()))
         setNome(nome)
         setEmail(email)
         setTelefone(telefone)
@@ -30,7 +30,7 @@ export function Cadastro(){
         <View style={styles.container}>
             <Cabecalho titulo={"Cadastro"}/>
 
-            <View style={styles.conteinerCadastro}>
+            <View style={styles.containerCadastro}>
                 <FormularioUsuario 
                     adicionar={adicionarUsuario}
                 />  

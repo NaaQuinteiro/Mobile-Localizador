@@ -2,8 +2,19 @@ import { useState } from "react";
 import {View, StyleSheet, TextInput, Text, TouchableOpacity} from "react-native"
 import {Feather} from '@expo/vector-icons'
 
+
+interface FormularioUsuarioProps{
+    adicionar: (
+        nome: string,
+        email: string, 
+        telefone: string, 
+        usuario: string, 
+        senha: string
+    ) => void
+
+}
 //passando a propse como parametro
-export function FormularioUsuario({adicionar}){
+export function FormularioUsuario({adicionar} : FormularioUsuarioProps){
     
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
@@ -36,7 +47,7 @@ export function FormularioUsuario({adicionar}){
                 style={styles.campo}
                 placeholder="Email"
                 placeholderTextColor='#FFFF'
-                keyboardType="email-adress"
+                keyboardType="email-address"
                 onChangeText={setEmail}
                 value={email}
                 />
@@ -116,7 +127,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#560bad',
-        marginStart: 10,
         borderRadius: 5, 
         marginVertical: 5
     }, 

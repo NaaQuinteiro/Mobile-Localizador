@@ -6,15 +6,26 @@ import { useState } from "react";
 import 'react-native-get-random-values'
 import uuid from 'react-native-uuid'
 
+interface UsuariosProps{
+    codigo: string;
+    nome: string;
+    email: string;
+    telefone: string;
+    usuario: string;
+    senha: string;
+
+}
+
+
 export function Usuarios(){
 
-    const [listaUsuarios, setListaUsuarios] = useState([]);
+    const [listaUsuarios, setListaUsuarios] = useState<UsuariosProps[]>([]);
 
     //função pra inserir usuarios  // criando a função, que deve interajir com o componente formulario
-    function adicionarUsuario(nome, email, telefone, usuario, senha){
+    function adicionarUsuario(nome: string, email: string, telefone:string, usuario: string, senha: string){
 
-        let novoUsuario = {
-            codigo: uuid.v4(),
+        let novoUsuario: UsuariosProps = {
+            codigo: (String(uuid.v4())),
             nome: nome,
             email: email,
             telefone: telefone,
@@ -27,7 +38,7 @@ export function Usuarios(){
     }
 
     //Função pra remover usuarios
-    const removerUsuario = codigo => {
+    const removerUsuario = (codigo : string)=> {
 
         setListaUsuarios(
             listaUsuarios.filter(usuario => usuario.codigo !== codigo)

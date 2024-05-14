@@ -6,14 +6,26 @@ import { useState } from "react";
 import 'react-native-get-random-values'
 import uuid from 'react-native-uuid'
 
+
+interface AmbienteEquipamentoProps{
+    codigo: string;
+    descricao: string;
+    latitude: string;
+    longitude: string;
+    statusOperacional: string;
+    instrucoesSeguranca: string;
+    contatoResponsavel: string;
+}
+
 export function AmbientesEquipamentos(){
 
-    const[listaAmbiEqui, setListaAmbiEqui] = useState([])
+    const[listaAmbiEqui, setListaAmbiEqui] = useState<AmbienteEquipamentoProps[]>([])
 
-    function adicionarAmbiente(latitude, longitude, statusOperacional, instrucoesSeguranca, contatoResponsavel){
+    function adicionarAmbiente(descricao:string, latitude: string, longitude:string, statusOperacional:string, instrucoesSeguranca:string, contatoResponsavel: string){
 
-        let novoAmbiente = {
-            codigo: uuid.v4(),
+        let novoAmbiente : AmbienteEquipamentoProps = {
+            codigo: String(uuid.v4()),
+            descricao: descricao,
             latitude: latitude,
             longitude: longitude,
             statusOperacional: statusOperacional,
@@ -25,7 +37,7 @@ export function AmbientesEquipamentos(){
     }
 
     //Função pra remover ambientes
-    const removerAmbiente = codigo =>{
+    const removerAmbiente = (codigo : String) =>{
 
         setListaAmbiEqui(
             listaAmbiEqui.filter(ambiente => ambiente.codigo !== codigo)

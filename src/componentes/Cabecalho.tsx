@@ -1,7 +1,13 @@
 import { StyleSheet, View , Text} from "react-native"
 
+
+interface CabecalhoProps {
+    titulo: string;
+    subtitulo?: string;
+}
+
 // o nome da função que gera o componente tem que ser o mesmo do arquivo 
-export const  Cabecalho = ({titulo, subtitulo}) => {
+export const  Cabecalho = ({titulo, subtitulo} : CabecalhoProps) => {
     return(
         <View style={estilos.container}>
             <Text style={estilos.texto}>{titulo}</Text>

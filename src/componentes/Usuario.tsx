@@ -3,7 +3,16 @@
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import { Feather } from '@expo/vector-icons'
 
-export function Usuario({nome, email, telefone,usuario, senha, excluir}){
+
+interface UsuarioProps {
+    nome: string;
+    email:string;
+    telefone: string;
+    usuario: string;
+    senha: string;
+    excluir: () => void;
+}
+export function Usuario({nome, email, telefone,usuario, senha, excluir} : UsuarioProps){
     return(
         <View style={styles.container}>
 

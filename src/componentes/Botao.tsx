@@ -1,8 +1,12 @@
 import { StyleSheet, TouchableOpacity, Text} from "react-native"
 
 import { useState } from 'react'
+
+interface BotaoProps {
+    texto: string;
+}
 // o props é um objeto que permite termos acesso a tpodas as propriedades passadas para o componente 
-export const Botao = ({texto}) => {
+export const Botao = ({texto}: BotaoPropse) => { 
     // usando o state, os dois parametros funcionam como get e setter, e no 
     //parenteses do useState coloca-se o valor onde ele vai iniciar
     const [cliques, setCliques] = useState(0)
