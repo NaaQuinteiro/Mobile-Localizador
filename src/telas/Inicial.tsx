@@ -1,7 +1,8 @@
 
-import {StyleSheet, View } from "react-native";
+import {StyleSheet, View} from "react-native";
 import { Cabecalho } from "../componentes/Cabecalho";
 import { useEffect, useRef, useState } from "react";
+import {MaterialIcons,FontAwesome5, MaterialCommunityIcons, Feather  } from '@expo/vector-icons'
 
 // Biblioteca para o usuario permitir acesso a localização 
 // obtém a localização do usuario 
@@ -52,6 +53,13 @@ export function Inicial(){
         });
     }, []);
 
+    // let [regiao, setRegiao] = useState({
+    //     latitude: -22.9140,
+    //     longitude: ,
+    //     latitudeDelta: 0.005,
+    //     longitudeDelta: 0.005
+    // })
+
     return(
         <View style={styles.container}> 
             <Cabecalho 
@@ -65,7 +73,7 @@ export function Inicial(){
                     style={styles.map}
                     initialRegion={{
                         latitude: location.coords.latitude,
-                        longitude: location.coords.longitude,
+                        longitude:location.coords.longitude,
                         latitudeDelta: 0.005,
                         longitudeDelta: 0.005
                     }}
@@ -76,6 +84,46 @@ export function Inicial(){
                             longitude: location.coords.longitude,
                         }}
                     />
+
+                    <Marker coordinate={{latitude: -22.9141396, longitude: -47.0681575}}>
+                        <View style={styles.marcadorContainer}>
+                            <FontAwesome5 
+                                name="temperature-high" 
+                                size={24} 
+                                color="rgb(67, 97, 238)" />
+                        </View>
+                    </Marker>
+
+                    <Marker coordinate={{latitude: -22.9141236, longitude:  -47.0681981}}>
+                        <View style={styles.marcadorContainer}>
+                            <MaterialIcons 
+                                name="sensors" 
+                                size={20} 
+                                color="rgb(67, 97, 238)"
+                            />
+                        </View>
+                    </Marker>
+
+                    <Marker coordinate={{latitude: -22.914252, longitude:  -47.068253}}>
+                        <View style={styles.marcadorContainer}>
+                            <Feather
+                                name="sun" 
+                                size={20} 
+                                color="rgb(67, 97, 238)"
+                            />
+                        </View>
+                    </Marker>
+
+                    <Marker coordinate={{latitude: -22.914868, longitude:  -47.068379}}>
+                        <View style={styles.marcadorContainer}>
+                            <MaterialCommunityIcons
+                                name="counter" 
+                                size={20} 
+                                color="rgb(67, 97, 238)"
+                            />
+                        </View>
+                    </Marker>
+
                 </MapView>
 
             }
@@ -95,6 +143,17 @@ const styles = StyleSheet.create({
     map: {
        flex: 1,
        width: '100%',
+    },
+
+    marcadorContainer: {
+        width: 50,
+        height:50,
+        // backgroundColor: 'rgb(67, 97, 238)',
+        flexDirection: 'column',
+        borderRadius: 100,
+        overflow: 'hidden',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
 });
